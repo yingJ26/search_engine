@@ -1,0 +1,14 @@
+My added code to test_hashtable.cc is below:
+
+// additional unit test
+TEST_F (Test_HashTable, HTIterator_Remove) {
+    HTKeyValue_t oldkv;
+    HashTable *table = HashTable_Allocate(10);
+    HTIterator *it = HTIterator_Allocate(table);
+    it->ht = NULL;
+    ASSERT_FALSE(HTIterator_Remove(it, &oldkv));
+    HTIterator_Free(it);
+    HashTable_Free(table, &Test_HashTable::InstrumentedFree);
+}
+
+it increases the coverage from 94.51% to 95.12%

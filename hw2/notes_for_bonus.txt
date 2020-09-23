@@ -1,0 +1,22 @@
+notes for bonus
+
+add two function in FileParser.c
+// return true if it's one of the StopWord
+static bool IsStopWord(char* word);
+// set the global variable FILTER_STOP_WORD equal to the val passed in
+void SetFilter(bool val);
+
+modify InsertContent function to only insert when !FILTER_STOP_WORD
+or !IsStopWord(wordstart)
+
+modify the error checking in searchshell.c
+if (argc != 2 && argc != 3) {
+        Usage();
+    }
+    if (argc == 3) {
+        if (strcmp(argv[2], "-s") != 0) {
+            Usage();
+        } else {
+            SetFilter(true);
+        }
+    }
